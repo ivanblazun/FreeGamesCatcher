@@ -1,38 +1,155 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Open sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  background: #f5f5f5;
+  background-image: pixelated;
+}
+
 .App {
   text-align: center;
+  background-color: #334;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.imageTable {
+  max-width: 960px;
+  margin: 100px auto;
+  padding: 10px;
+  display: grid;
+
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(200px, 1fr)
+  );
+  gap: 12px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.imageTable2 {
+  max-width: 960px;
+  margin: auto;
+  padding: 10px;
+  display: grid;
+
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(200px, 1fr)
+  );
+  gap: 12px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.item {
   color: white;
+  font-size: 20px;
+  padding: 20px;
+  border: skyblue 1px solid;
+  opacity: 0.8;
+  border-radius: 3px;
+}
+.item::before {
+  transform: scale(0.8);
+}
+.item:hover {
+  cursor: pointer;
+  opacity: 1;
+  transition: ease-in-out 0.3s;
+  transform: scale(1.1);
+}
+.image {
+  width: 80%;
+}
+.tabBackGround {
+  opacity: 50%;
+  width: 50%;
+}
+.tilt {
+  opacity: 0.8;
 }
 
-.App-link {
-  color: #61dafb;
+.tilt:hover {
+  opacity: 1;
+  position: relative;
+  animation: myfirst 1s;
+  animation-direction: alternate;
+}
+.tilt:active {
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 500px) {
+  .imageTable {
+    grid-template-columns: 1fr;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+/* Anima*/
+
+.ani {
+  -webkit-animation: bummer 2s;
+  animation: bummer 0.7s;
+  -webkit-transform: scale(0, 0);
+  transform: scale(0, 0);
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+@-webkit-keyframes bummer {
+  100% {
+    -webkit-transform: scale(1, 1);
+  }
+}
+
+@keyframes bummer {
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+.ani2 {
+  -webkit-animation: bummer 2s;
+  animation: bummer 0.6s;
+  -webkit-transform: scale(0, 0);
+  transform: scale(0, 0);
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  transition: ease-in;
+  opacity: calc(0.2, 1);
+}
+@-webkit-keyframes bummer {
+  100% {
+    -webkit-transform: scale(1, 1);
+  }
+}
+
+@keyframes bummer {
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes myfirst {
+  0% {
+    left: 0px;
+    top: 0px;
+  }
+  25% {
+    left: 8px;
+    top: 0px;
+  }
+  50% {
+    left: 0px;
+    top: 0px;
+  }
+  75% {
+    left: 8px;
+    top: 00px;
+  }
+  100% {
+    left: 0px;
+    top: 0px;
   }
 }
